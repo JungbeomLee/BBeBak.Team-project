@@ -1,0 +1,5 @@
+master branch : 최종 완성본을 올리는 브랜치
+develop branch : 개발 브랜치
+feature branch : 기능 개발 브랜치
+ㄴ feature branch 경우 네이밍할 때 각 자신의 영어 약자를 붙여 만듬
+   ㄴex) feature-LJB
