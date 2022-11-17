@@ -14,6 +14,7 @@ Branch Rule!
 > feature branch : 기능 개발 브랜치
 >   > feature branch 경우 네이밍할 때 각 자신의 영어 약자를 붙여 만듬
 >   >   > ex) feature-LJB
+**** 
 
 Commit Rule! 
 ============= 
@@ -26,5 +27,5 @@ Commit Rule!
     STYLE : 코드 스타일 혹은 포맷 등에 관한 커밋 
     REFACTOR :  코드 리펙토링 커밋, merge 커밋 
     TEST : 테스트 코드 커밋 
-****
 ex) REFACTOR(own user) : GET own user data to fetch 
+**** 
