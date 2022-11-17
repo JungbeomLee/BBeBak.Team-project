@@ -27,5 +27,5 @@ Commit Rule!
     STYLE : 코드 스타일 혹은 포맷 등에 관한 커밋 
     REFACTOR :  코드 리펙토링 커밋, merge 커밋 
     TEST : 테스트 코드 커밋 
-ex) REFACTOR(own user) : GET own user data to fetch 
+### ex) REFACTOR(own user) : GET own user data to fetch 
 **** 
