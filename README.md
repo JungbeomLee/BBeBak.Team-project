@@ -5,5 +5,5 @@ Rule!
     3. develop branch 변경 사항이 있을 경우 'git merge origin/develop'을 이용하여 병합(merge) 후 작업 
     4. commit을 할 땐 'commit-rule.txt' 파일을 확인 후 commit 규칙에 맞게 commit message 작성 
 **** 
-* 자신의 작업 영역 이외의 파일 수정 X, 병합(merge)할 때 '충돌(CONFLICT)' 일어나게 됨 * 
+### 자신의 작업 영역 이외의 파일 수정 X, 병합(merge)할 때 '충돌(CONFLICT)' 일어나게 됨
 **** 
