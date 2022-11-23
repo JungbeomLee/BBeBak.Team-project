@@ -1,22 +1,19 @@
-from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse
-from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
+from fastapi import FastAPI
 import uvicorn
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory='static'), name="static")
-templates = Jinja2Templates(directory="templates")
 
-@app.get('/', response_class=HTMLResponse)
-async def main_page(request: Request) :
-    return templates.TemplateResponse("index.html", {"request" : request})
+import views.fast_main as fast_main
+import views.ranking.fast_game_ranking as fast_game_ranking
+import views.ranking.fast_melonranking as fast_melon_ranking
 
 
-import views.main as main
+app.include_router(fast_main.api)
+app.include_router(fast_game_ranking.api)
+app.include_router(fast_melon_ranking.api)
 
-app.include_router(main.api)
+
 
 if __name__ == "__main__" :
     uvicorn.run('app:app', reload=True)
