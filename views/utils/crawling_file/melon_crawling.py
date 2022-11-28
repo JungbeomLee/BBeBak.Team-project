@@ -56,4 +56,6 @@ class MELON_CRAWLING :
                 datas.append(data)
 
         with open('views/utils/json/melon/melon{}.json'.format(json_count), 'w', encoding = 'utf-8') as f:
-                    f.write(json.dumps(datas, ensure_ascii = False))
+            f.write(json.dumps(datas, ensure_ascii = False))
+
+        print('crawled')
