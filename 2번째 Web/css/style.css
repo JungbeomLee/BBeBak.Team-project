@@ -53,9 +53,9 @@ ul {
   justify-content: space-between;
 }
 .rank > ul > li {
-  -webkit-backdrop-filter: blur(50px);
-          backdrop-filter: blur(50px);
-  background-color: rgba(255, 255, 255, 0.089);
+  -webkit-backdrop-filter: blur(30px);
+          backdrop-filter: blur(30px);
+  background-color: rgba(255, 255, 255, 0.3);
   border: 2px solid white;
   border-radius: 5px;
   text-align: center;
@@ -68,6 +68,11 @@ ul {
   font-weight: normal;
 }
 
+.ranking > img {
+  margin-top: 10px;
+  width: auto;
+  height: 45px;
+}
 .ranking > hr {
   width: 90%;
   margin: auto;
@@ -91,12 +96,6 @@ ul {
 
 .melon {
   position: relative;
-}
-.melon > p {
-  color: #00CD3C;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 40px;
-  font-weight: bold;
 }
 .melon > ul > li > div {
   width: 350px;
@@ -148,12 +147,6 @@ ul {
 .musinsa {
   position: relative;
 }
-.musinsa > p {
-  color: #000000;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 40px;
-  font-weight: bold;
-}
 .musinsa > ul > li > div {
   width: 350px;
   height: 115px;
@@ -204,12 +197,6 @@ ul {
 .playstore {
   position: relative;
 }
-.playstore > p {
-  color: #ff3333;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 40px;
-  font-weight: bold;
-}
 .playstore > ul > li > div {
   width: 350px;
   height: 115px;
@@ -252,28 +239,23 @@ ul {
   font-size: 18px;
 }
 
-.PrevNext {
-  position: absolute;
-  top: 630px;
+.PrevNext > ul {
+  position: relative;
+  display: flex;
+  width: 80%;
+  margin: auto;
+  top: 80px;
+  justify-content: space-between;
   z-index: 1;
-  width: 100%;
 }
-.PrevNext > .imageButton {
-  width: 45px;
-  height: 45px;
+.PrevNext > ul > li > .imageButton {
   background-color: transparent;
   border-color: transparent;
   outline: none;
   opacity: 50%;
 }
-.PrevNext > .imageButton:hover {
+.PrevNext > ul > li > .imageButton:hover {
   opacity: 100%;
-}
-.PrevNext > .prev {
-  margin-right: 100px;
-}
-.PrevNext > .next {
-  margin-left: 100px;
 }
 
 .frontInfo {
@@ -318,7 +300,7 @@ ul {
     height: 300px;
     margin-bottom: 30px;
   }
-  .PrevNext {
-    top: 220px;
+  .PrevNext > ul {
+    top: 10px;
   }
 }/*# sourceMappingURL=style.css.map */

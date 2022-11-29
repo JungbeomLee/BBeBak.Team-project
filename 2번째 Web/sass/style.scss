@@ -1,10 +1,6 @@
 @charset "UTF-8";
 $titleColor: white;
 
-$MelonColor: #00CD3C; 
-$MusinsaColor: #000000;
-$PlayStoreColor: #ff3333;
-
 $infoTitleColor: #ffffff;
 $infoSubColor: #b1b1b1;
 
@@ -14,7 +10,8 @@ $iconSize: 27px;
 $infoFont: "Arial, Helvetica, sans-serif";
 $rankFont: "Arial, Helvetica, sans-serif";
 
-$rankBlur: 50px;
+$rankBlur: 30px;
+$rankBack: rgba(255, 255, 255, 0.3);
 
 * {
     margin: 0;
@@ -84,7 +81,7 @@ li {
         justify-content: space-between;
         > li {
             backdrop-filter: blur($rankBlur);
-            background-color: rgba(255, 255, 255, 0.089);
+            background-color: $rankBack;
             border: 2px solid white;
             border-radius: 5px;
             text-align: center;
@@ -101,6 +98,11 @@ li {
 
 //랭킹 바 전체 컨트롤
 .ranking {
+    > img {
+        margin-top: 10px;
+        width: auto;
+        height: 45px;
+    }
     > hr {
         width: 90%;
         margin: auto;
@@ -128,12 +130,6 @@ li {
 //멜론
 .melon {
     position: relative;
-    > p {
-        color: $MelonColor;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 40px;
-        font-weight: bold;
-    }
     > ul {
         > li > div {
             width: 350px;
@@ -189,12 +185,6 @@ li {
 //무신사
 .musinsa {
     position: relative;
-    > p {
-        color: $MusinsaColor;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 40px;
-        font-weight: bold;
-    }
     > ul {
         > li > div {
             width: 350px;
@@ -250,12 +240,6 @@ li {
 //멜론
 .playstore {
     position: relative;
-    > p {
-        color: $PlayStoreColor;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 40px;
-        font-weight: bold;
-    }
     > ul {
         > li > div {
             width: 350px;
@@ -302,14 +286,16 @@ li {
 }
 
 //버튼
-.PrevNext {
-    position: absolute;
-    top: 630px;
+.PrevNext > ul {
+    position: relative;
+    display: flex;
+    width: 80%;
+    margin: auto;
+    top: 80px;
+    justify-content: space-between;
     z-index: 1;
-    width: 100%;
-    > .imageButton {
-        width: 45px;
-        height: 45px;
+    > li > .imageButton {
+        
         background-color: transparent;
         border-color: transparent;
         outline: none;
@@ -317,12 +303,6 @@ li {
         &:hover {
             opacity: 100%;
         }
-    }
-    > .prev {
-        margin-right: 100px;
-    }
-    > .next {
-        margin-left: 100px;
     }
 }
 
@@ -388,8 +368,8 @@ $tablet: 1470px;
         }
     }
 
-    .PrevNext {
-        top: 220px;
+    .PrevNext > ul {
+        top: 10px;
     }
 
     
