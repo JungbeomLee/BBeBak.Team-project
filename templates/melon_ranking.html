@@ -20,7 +20,7 @@
             method: 'GET'
         })
             .then(res => res.json())
-            .then(data => {melonRankingArrangement(data)})
+            .then(data => { melonRankingArrangement(data) })
     }
 
     function melonRankingArrangement(data) {
@@ -35,6 +35,7 @@
                                 <p class='auctionPrice'>제목 : ${data[(j).toString() + 'st'][i].title}</p>
                                 <p class='auctionPrice'>아티스트 : ${data[(j).toString() + 'st'][i].prod}</p>
                                 <p class='auctionPrice'>앨범 : ${data[(j).toString() + 'st'][i].album}</p>
+                                <p class='auctionPrice'>👍 : ${data[(j).toString() + 'st'][i].like}</p>
                             </li>
                         `)
             };

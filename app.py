@@ -1,17 +1,22 @@
 from fastapi import FastAPI
 import uvicorn
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
+app.mount("/static", StaticFiles(directory='static'), name="static")
 
 import views.fast_main as fast_main
 import views.ranking.fast_game_ranking as fast_game_ranking
 import views.ranking.fast_melonranking as fast_melon_ranking
+import views.ranking.fast_musinsaranking as fast_musinsa_ranking
 
 
 app.include_router(fast_main.api)
 app.include_router(fast_game_ranking.api)
 app.include_router(fast_melon_ranking.api)
+app.include_router(fast_musinsa_ranking.api)
+
 
 
 

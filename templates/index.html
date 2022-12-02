@@ -1,14 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}" rel="stylesheet">
     <title>Document</title>
 </head>
+
 <body>
-    <button onclick="location.href='/gameranking'">게임</button>
-    <button onclick="location.href='/melonranking'">멜론</button>
-    <button onclick="location.href='/musinsaranking'">무신사</button>
+    <div class="bg-video">
+        <video autoplay muted loop>
+            <source src="/static/MyBlenderSimulationsinHDR.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+
+    <div class="frontInfo">
+        <div class="Info">
+
+        </div>
+    </div>
+
+    <header>
+        <div class="title">
+            <a href="#">LOGO</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="rank">
+            <ul>
+
+                <!-- melon -->
+                <li>
+                    <p id="melon_date"></p>
+                    <div class="ranking melon" id="melonDiv">
+                        <img src="/static/img/logo/melon.png" alt="melon">
+                        <hr>
+                        <ul id="melonList">
+                        </ul>
+                    </div>
+                    <div class="PrevNext">
+                        <ul>
+                            <li>
+                                <button type="button" class="imageButton prev melon" id="melonPrev">
+                                    <img src="/static/img/PrevBtn.png" alt="prev">
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="imageButton next" id="melonNext">
+                                    <img src="/static/img/NextBtn.png" alt="prev">
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- musinsa -->
+                <li>
+                    <p id="musinsa_date"></p>
+                    <div class="ranking musinsa">
+                        <img src="/static/img/logo/musinsa.png" alt="melon">
+                        <hr>
+                        <ul id="musinsaList">
+                        </ul>
+                    </div>
+                    <div class="PrevNext">
+                        <ul>
+                            <li>
+                                <button type="button" class="imageButton prev">
+                                    <img src="/static/img/PrevBtn.png" alt="prev">
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="imageButton next">
+                                    <img src="/static/img/NextBtn.png" alt="prev">
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- google play -->
+                <li>
+                    <p>2022-12-25 12:00</p>
+                    <div class="ranking playstore">
+                        <img src="/static/img/logo/playstore.png" alt="melon">
+                        <hr>
+                        <ul>
+                            <li>
+                                <div>
+                                    <h3>100</h3>
+                                    <img src="" alt="Melon PlayStore">
+                                    <div class="info">
+                                        <h3>title</h3>
+                                        <hr>
+                                        <div class="down">
+                                            <img src="/static/img/down.png" alt="Down Logo">
+                                            <p>100000</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="PrevNext">
+                        <ul>
+                            <li>
+                                <button type="button" class="imageButton prev">
+                                    <img src="/static/img/PrevBtn.png" alt="prev">
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="imageButton next">
+                                    <img src="/static/img/NextBtn.png" alt="prev">
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </main>
 </body>
+
+<!-- melon -->
+<script>
+    window.onload = getMelonUserData();
+
+    let melonPage = 2
+    let melonData
+
+
+    function getMelonUserData() {
+        fetch('/melonranking/get', {
+            method: 'GET'
+        })
+            .then(res => res.json())
+            .then(data => { 
+                melonData = data
+                melonRankingArrangement(data) 
+            })
+    }
+
+    function melonRankingArrangement(data) {
+        for (i = 0; i < data[(0).toString() + 'st'].length; i++) {
+            document.getElementById('melon_date').innerText = data[(melonPage).toString() + 'st'][i].date
+            const list = document.getElementById('melonList');
+            list.insertAdjacentHTML('beforeend', `
+                        <li>
+                            <div>
+                                <h3>${data[(melonPage).toString() + 'st'][i].rank}</h3>
+                                <img src="${data[(melonPage).toString() + 'st'][i].img}" alt="Melon Ranking">
+                                <div class="info">
+                                    <h3>${data[(melonPage).toString() + 'st'][i].title}</h3>
+                                    <hr>
+                                    <h4>${data[(melonPage).toString() + 'st'][i].prod}</h4>
+                                    <div class="like">
+                                        <img src="/static/img/like.png" alt="Like Logo">
+                                        <p>${data[(melonPage).toString() + 'st'][i].like}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                        </li>
+                    `)
+        };
+    }
+
+    const melonPrevbutton = document.getElementById('melonPrev')
+    const melonNextbutton = document.getElementById('melonNext')
+    melonNextbutton.style.display = 'none'
+
+    melonPrevbutton.addEventListener('click', (e) => {
+        melonPage--
+        if(melonPage == 0) {
+            melonPrevbutton.style.display = 'none'
+        }
+
+        if(melonPage != 2){
+            melonNextbutton.style.display = 'block'
+        }
+
+        document.getElementById('melonList').remove()
+
+        const melonList = document.createElement('ul')
+        melonList.id = 'melonList'
+
+        document.getElementById('melonDiv').appendChild(melonList)
+        melonRankingArrangement(melonData);
+        console.log(melonPage)
+    })
+
+    melonNextbutton.addEventListener('click', (e) => {
+        melonPage++
+        if(melonPage == 2) {
+            melonNextbutton.style.display = 'none'
+        }
+
+        if(melonPage != 0){
+            melonPrevbutton.style.display = 'block'
+        }
+
+        document.getElementById('melonList').remove()
+
+        const melonList = document.createElement('ul')
+        melonList.id = 'melonList'
+
+        document.getElementById('melonDiv').appendChild(melonList)
+        melonRankingArrangement(melonData);
+        console.log(melonPage)
+    })
+</script>
+
+<!-- musinsa -->
+<script>
+    window.onload = getMusinsaUserData();
+
+    function getMusinsaUserData() {
+        fetch('/musinsaranking/get', {
+            method: 'GET'
+        })
+            .then(res => res.json())
+            .then(musinsadata => { musinsaRankingArrangement(musinsadata) })
+    }
+
+    function musinsaRankingArrangement(data) {
+        for (j = 0; j < 3; j++) {
+            for (i = 0; i < data[(0).toString() + 'st'].length; i++) {
+                document.getElementById('musinsa_date').innerText = data[(j).toString() + 'st'][i][0].날짜
+                const list = document.getElementById('musinsaList');
+                list.insertAdjacentHTML('beforeend', `
+                            <li>
+                                <div>
+                                    <h3>${data[(j).toString() + 'st'][i][0].순위}</h3>
+                                    <img src="${data[(j).toString() + 'st'][i][0].옷사진}">
+                                    <div class="info">
+                                        <h3>${data[(j).toString() + 'st'][i][0].옷이름}</h3>
+                                        <hr>
+                                        <h4>${data[(j).toString() + 'st'][i][0].브랜드}</h4>
+                                        <div class="coin">
+                                            <img src="/static/img/won.png"Coin Logo">
+                                            <p>${data[(j).toString() + 'st'][i][0].가격}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                            </li>
+                        `)
+            };
+        }
+    }
+
+</script>
+
+
 </html>

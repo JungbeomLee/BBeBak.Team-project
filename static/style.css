@@ -1,0 +1,335 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  min-width: 420px;
+  background-color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+hr {
+  height: 1px;
+  border: 0;
+  background-color: #FFFFFF;
+}
+
+.bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  min-width: 100%;
+  z-index: -1;
+  transform: translateX(calc((100% - 100vw) / 2));
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+}
+.title > a {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 64px;
+  font-weight: bold;
+  mix-blend-mode: difference;
+}
+
+.rank {
+  width: 80%;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+}
+.rank > ul {
+  display: flex;
+  justify-content: space-between;
+}
+.rank > ul > li {
+  -webkit-backdrop-filter: blur(30px);
+          backdrop-filter: blur(30px);
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 2px solid white;
+  border-radius: 5px;
+  text-align: center;
+  width: 385px;
+  height: 720px;
+}
+.rank > ul > li > p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 32px;
+  font-weight: normal;
+}
+
+.ranking > img {
+  margin-top: 10px;
+  margin-bottom: 2px;
+  width: auto;
+  height: 45px;
+}
+.ranking > hr {
+  width: 350px;
+  margin: auto;
+}
+.ranking > ul {
+  height: 300px;
+  overflow: auto;
+}
+.ranking > ul::-webkit-scrollbar {
+  display: none;
+}
+.ranking > ul > li > div > h3 {
+  font-family: "Arial, Helvetica, sans-serif";
+  font-size: 24px;
+  line-height: 115px;
+  min-width: 42px;
+  text-align: right;
+}
+.ranking > ul > li > div > .info > h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ranking > ul > li > div > .info > h4 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ranking > ul > li > hr {
+  width: 350px;
+  margin: auto;
+}
+
+.melon {
+  position: relative;
+}
+.melon > ul > li > div {
+  width: 350px;
+  height: 115px;
+  margin: auto;
+  text-align: left;
+  display: flex;
+}
+.melon > ul > li > div > img {
+  width: 70px;
+  height: 70px;
+  border: 2px solid white;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.melon > ul > li > div > .info {
+  margin-left: 10px;
+  width: 100%;
+}
+.melon > ul > li > div > .info > hr {
+  width: 90%;
+}
+.melon > ul > li > div > .info > h3 {
+  width: 210px;
+  height: 32px;
+  font-family: "Arial, Helvetica, sans-serif";
+  font-size: 24px;
+  color: #ffffff;
+}
+.melon > ul > li > div > .info > h4 {
+  width: 200px;
+  height: 21.6px;
+  font-family: "Arial, Helvetica, sans-serif";
+  font-size: 16px;
+  color: #cecece;
+}
+.melon > ul > li > div > .info > .like {
+  display: flex;
+  margin-top: 31px;
+  margin-left: 60px;
+}
+.melon > ul > li > div > .info > .like > img {
+  width: 27px;
+  height: 27px;
+}
+.melon > ul > li > div > .info > .like > p {
+  margin-left: 5px;
+  font-family: "Arial, Helvetica, sans-serif";
+  font-size: 18px;
+}
+
+.musinsa {
+  position: relative;
+}
+.musinsa > ul > li > div {
+  width: 350px;
+  height: 115px;
+  margin: auto;
+  text-align: left;
+  display: flex;
+}
+.musinsa > ul > li > div > img {
+  width: 70px;
+  height: 70px;
+  border: 2px solid white;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.musinsa > ul > li > div > .info {
+  margin-left: 10px;
+  width: 100%;
+}
+.musinsa > ul > li > div > .info > hr {
+  width: 90%;
+}
+.musinsa > ul > li > div > .info > h3 {
+  width: 210px;
+  height: 32px;
+  font-family: "Arial, Helvetica, sans-serif";
+  font-size: 24px;
+  color: #ffffff;
+}
+.musinsa > ul > li > div > .info > h4 {
+  width: 200px;
+  height: 21.6px;
+  font-family: "Arial, Helvetica, sans-serif";
+  font-size: 16px;
+  color: #cecece;
+}
+.musinsa > ul > li > div > .info > .coin {
+  display: flex;
+  margin-top: 31px;
+  margin-left: 60px;
+}
+.musinsa > ul > li > div > .info > .coin > img {
+  width: 27px;
+  height: 27px;
+}
+.musinsa > ul > li > div > .info > .coin > p {
+  margin-left: 5px;
+  font-family: "Arial, Helvetica, sans-serif";
+  font-size: 18px;
+}
+
+.playstore {
+  position: relative;
+}
+.playstore > ul > li > div {
+  width: 350px;
+  height: 115px;
+  margin: auto;
+  text-align: left;
+  display: flex;
+}
+.playstore > ul > li > div > img {
+  width: 70px;
+  height: 70px;
+  border: 2px solid white;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.playstore > ul > li > div > .info {
+  margin-left: 10px;
+  width: 100%;
+}
+.playstore > ul > li > div > .info > hr {
+  width: 90%;
+}
+.playstore > ul > li > div > .info > h3 {
+  width: 210px;
+  height: 32px;
+  font-family: "Arial, Helvetica, sans-serif";
+  font-size: 24px;
+  color: #ffffff;
+}
+.playstore > ul > li > div > .info > .down {
+  display: flex;
+  margin-top: 52px;
+  margin-left: 60px;
+}
+.playstore > ul > li > div > .info > .down > img {
+  width: 27px;
+  height: 27px;
+}
+.playstore > ul > li > div > .info > .down > p {
+  margin-left: 5px;
+  font-family: "Arial, Helvetica, sans-serif";
+  font-size: 18px;
+}
+
+.PrevNext > ul {
+  position: relative;
+  display: flex;
+  width: 80%;
+  margin: auto;
+  top: 80px;
+  justify-content: space-between;
+  z-index: 1;
+}
+.PrevNext > ul > li > .imageButton {
+  background-color: transparent;
+  border-color: transparent;
+  outline: none;
+  opacity: 50%;
+}
+.PrevNext > ul > li > .imageButton:hover {
+  opacity: 100%;
+}
+
+.frontInfo {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 99;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+.frontInfo > .Info {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 700px;
+  height: 80%;
+  max-height: 500px;
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+@media (min-width: 1470px) {
+  .ranking > ul {
+    height: 468px;
+  }
+}
+@media (max-width: 1470px) {
+  .ranking > ul {
+    height: 117px;
+  }
+  .rank {
+    width: 385px;
+  }
+  .rank > ul {
+    display: inline;
+  }
+  .rank > ul > li {
+    height: 300px;
+    margin-bottom: 30px;
+  }
+  .PrevNext > ul {
+    top: 10px;
+  }
+}/*# sourceMappingURL=style.css.map */
