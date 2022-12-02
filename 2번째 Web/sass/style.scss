@@ -197,7 +197,7 @@ li {
                 }
                 > .like {
                     display: flex;
-                    margin-top: 10px;
+                    margin-top: 21px + 10px;
                     margin-left: 60px;
                     > img {
                         width: $iconSize;
@@ -256,7 +256,7 @@ li {
                 }
                 > .coin {
                     display: flex;
-                    margin-top: 21px + 10;
+                    margin-top: 21px + 10px;
                     margin-left: 60px;
                     > img {
                         width: $iconSize;
@@ -306,7 +306,7 @@ li {
                 }
                 > .down {
                     display: flex;
-                    margin-top: 21px * 2 + 10;
+                    margin-top: 21px * 2 + 10px;
                     margin-left: 60px;
                     > img {
                         width: $iconSize;
