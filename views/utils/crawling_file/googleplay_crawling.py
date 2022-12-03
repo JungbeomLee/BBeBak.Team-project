@@ -26,8 +26,8 @@ class GOOGLEPLAY_CRAWLING :
                 'user-agent': 'Mozilla/5.0 (Windows NT  10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36'
             }
         )
-
-
+        
+        
         soup = BeautifulSoup(response.text, 'html.parser')
         rank = soup.select('.zuJxTd > .ftgkle > .fUEl2e > .ULeU3b')
         datas = []
