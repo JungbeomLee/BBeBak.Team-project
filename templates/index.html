@@ -10,13 +10,6 @@
 </head>
 
 <body>
-    <div class="bg-video">
-        <video autoplay muted loop>
-            <source src="/static/MyBlenderSimulationsinHDR.mp4" type="video/mp4">
-        </video>
-    </div>
-    
-
     <div class="frontInfo">
         <div class="Info">
 
@@ -61,8 +54,8 @@
                 <!-- musinsa -->
                 <li>
                     <p id="musinsa_date"></p>
-                    <div class="ranking musinsa">
-                        <img src="/static/img/logo/musinsa.png" alt="melon">
+                    <div class="ranking musinsa" id="musinsaDiv">
+                        <img src="/static/img/logo/musinsa.png" alt="musinsa">
                         <hr>
                         <ul id="musinsaList">
                         </ul>
@@ -70,12 +63,12 @@
                     <div class="PrevNext">
                         <ul>
                             <li>
-                                <button type="button" class="imageButton prev">
+                                <button type="button" class="imageButton prev" id="musinsaPrev">
                                     <img src="/static/img/PrevBtn.png" alt="prev">
                                 </button>
                             </li>
                             <li>
-                                <button type="button" class="imageButton next">
+                                <button type="button" class="imageButton next" id="musinsaNext">
                                     <img src="/static/img/NextBtn.png" alt="prev">
                                 </button>
                             </li>
@@ -85,37 +78,22 @@
 
                 <!-- google play -->
                 <li>
-                    <p>2022-12-25 12:00</p>
-                    <div class="ranking playstore">
-                        <img src="/static/img/logo/playstore.png" alt="melon">
+                    <p id="googleplay_date"></p>
+                    <div class="ranking playstore" id="googleplayDiv">
+                        <img src="/static/img/logo/playstore.png" alt="googleplay">
                         <hr>
-                        <ul>
-                            <li>
-                                <div>
-                                    <h3>100</h3>
-                                    <img src="" alt="Melon PlayStore">
-                                    <div class="info">
-                                        <h3>title</h3>
-                                        <hr>
-                                        <div class="down">
-                                            <img src="/static/img/down.png" alt="Down Logo">
-                                            <p>100000</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-                            </li>
+                        <ul id="googleplayList">
                         </ul>
                     </div>
                     <div class="PrevNext">
                         <ul>
                             <li>
-                                <button type="button" class="imageButton prev">
+                                <button type="button" class="imageButton prev" id="googleplayPrev">
                                     <img src="/static/img/PrevBtn.png" alt="prev">
                                 </button>
                             </li>
                             <li>
-                                <button type="button" class="imageButton next">
+                                <button type="button" class="imageButton next" id="googleplayNext">
                                     <img src="/static/img/NextBtn.png" alt="prev">
                                 </button>
                             </li>
@@ -140,15 +118,15 @@
             method: 'GET'
         })
             .then(res => res.json())
-            .then(data => { 
+            .then(data => {
                 melonData = data
-                melonRankingArrangement(data) 
+                melonRankingArrangement(data)
             })
     }
 
     function melonRankingArrangement(data) {
+        document.getElementById('melon_date').innerText = data[(melonPage).toString() + 'st'][0].date
         for (i = 0; i < data[(0).toString() + 'st'].length; i++) {
-            document.getElementById('melon_date').innerText = data[(melonPage).toString() + 'st'][i].date
             const list = document.getElementById('melonList');
             list.insertAdjacentHTML('beforeend', `
                         <li>
@@ -177,11 +155,11 @@
 
     melonPrevbutton.addEventListener('click', (e) => {
         melonPage--
-        if(melonPage == 0) {
+        if (melonPage == 0) {
             melonPrevbutton.style.display = 'none'
         }
 
-        if(melonPage != 2){
+        if (melonPage != 2) {
             melonNextbutton.style.display = 'block'
         }
 
@@ -197,11 +175,11 @@
 
     melonNextbutton.addEventListener('click', (e) => {
         melonPage++
-        if(melonPage == 2) {
+        if (melonPage == 2) {
             melonNextbutton.style.display = 'none'
         }
 
-        if(melonPage != 0){
+        if (melonPage != 0) {
             melonPrevbutton.style.display = 'block'
         }
 
@@ -220,42 +198,177 @@
 <script>
     window.onload = getMusinsaUserData();
 
+    let musinsaPage = 2
+    let musinsaData
+
     function getMusinsaUserData() {
         fetch('/musinsaranking/get', {
             method: 'GET'
         })
             .then(res => res.json())
-            .then(musinsadata => { musinsaRankingArrangement(musinsadata) })
+            .then(data => {
+                musinsaData = data
+                musinsaRankingArrangement(data)
+            })
     }
 
     function musinsaRankingArrangement(data) {
-        for (j = 0; j < 3; j++) {
-            for (i = 0; i < data[(0).toString() + 'st'].length; i++) {
-                document.getElementById('musinsa_date').innerText = data[(j).toString() + 'st'][i][0].날짜
-                const list = document.getElementById('musinsaList');
-                list.insertAdjacentHTML('beforeend', `
-                            <li>
-                                <div>
-                                    <h3>${data[(j).toString() + 'st'][i][0].순위}</h3>
-                                    <img src="${data[(j).toString() + 'st'][i][0].옷사진}">
-                                    <div class="info">
-                                        <h3>${data[(j).toString() + 'st'][i][0].옷이름}</h3>
-                                        <hr>
-                                        <h4>${data[(j).toString() + 'st'][i][0].브랜드}</h4>
-                                        <div class="coin">
-                                            <img src="/static/img/won.png"Coin Logo">
-                                            <p>${data[(j).toString() + 'st'][i][0].가격}</p>
-                                        </div>
+        document.getElementById('musinsa_date').innerText = data[(musinsaPage).toString() + 'st'][0][0].날짜
+        for (i = 0; i < data[(0).toString() + 'st'].length; i++) {
+            const list = document.getElementById('musinsaList');
+            list.insertAdjacentHTML('beforeend', `
+                        <li>
+                            <div>
+                                <h3>${data[(musinsaPage).toString() + 'st'][i][0].순위}</h3>
+                                <img src="${data[(musinsaPage).toString() + 'st'][i][0].옷사진}">
+                                <div class="info">
+                                    <h3>${data[(musinsaPage).toString() + 'st'][i][0].옷이름}</h3>
+                                    <hr>
+                                    <h4>${data[(musinsaPage).toString() + 'st'][i][0].브랜드}</h4>
+                                    <div class="coin">
+                                        <img src="/static/img/won.png"Coin Logo">
+                                        <p>${data[(musinsaPage).toString() + 'st'][i][0].가격}</p>
                                     </div>
                                 </div>
-                                <hr>
-                            </li>
-                        `)
-            };
-        }
+                            </div>
+                            <hr>
+                        </li>
+                    `)
+        };
     }
+
+    const musinsaPrevbutton = document.getElementById('musinsaPrev')
+    const musinsaNextbutton = document.getElementById('musinsaNext')
+    musinsaNextbutton.style.display = 'none'
+
+    musinsaPrevbutton.addEventListener('click', (e) => {
+        musinsaPage--
+        if (musinsaPage == 0) {
+            musinsaPrevbutton.style.display = 'none'
+        }
+
+        if (musinsaPage != 2) {
+            musinsaNextbutton.style.display = 'block'
+        }
+
+        document.getElementById('musinsaList').remove()
+
+        const musinsaList = document.createElement('ul')
+        musinsaList.id = 'musinsaList'
+
+        document.getElementById('musinsaDiv').appendChild(musinsaList)
+        musinsaRankingArrangement(musinsaData);
+        console.log(musinsaPage)
+    })
+
+    musinsaNextbutton.addEventListener('click', (e) => {
+        musinsaPage++
+        if (musinsaPage == 2) {
+            musinsaNextbutton.style.display = 'none'
+        }
+
+        if (musinsaPage != 0) {
+            musinsaPrevbutton.style.display = 'block'
+        }
+
+        document.getElementById('musinsaList').remove()
+
+        const musinsaList = document.createElement('ul')
+        musinsaList.id = 'musinsaList'
+
+        document.getElementById('musinsaDiv').appendChild(musinsaList)
+        musinsaRankingArrangement(musinsaData);
+        console.log(musinsaPage)
+    })
 
 </script>
 
+<!-- google play -->
+<script>
+    window.onload = getgoogleplayUserData();
+
+    let googleplayPage = 2
+    let googleplayData
+
+    function getgoogleplayUserData() {
+        fetch('/googleplayranking/get', {
+            method: 'GET'
+        })
+            .then(res => res.json())
+            .then(data => {
+                googleplayData = data
+                googleplayRankingArrangement(data)
+            })
+    }
+
+    function googleplayRankingArrangement(data) {
+        document.getElementById('googleplay_date').innerText = data[(googleplayPage).toString() + 'st'][0][0].날짜
+        for (i = 0; i < data[(0).toString() + 'st'].length; i++) {
+            const list = document.getElementById('googleplayList');
+            list.insertAdjacentHTML('beforeend', `
+                    <li>
+                        <div>
+                            <h3>${data[(googleplayPage).toString() + 'st'][i][0].순위}</h3>
+                            <img src="${data[(googleplayPage).toString() + 'st'][i][0].앱로고}">
+                            <div class="info">
+                                <h3>${data[(googleplayPage).toString() + 'st'][i][0].앱이름}</h3>
+                                <hr>
+                                <h4>평점 : ${data[(googleplayPage).toString() + 'st'][i][0].평점}</h4>
+                                <div class="down">
+                                    <img src="/static/img/down.png" alt="Down Logo">
+                                    <p>${data[(googleplayPage).toString() + 'st'][i][0].다운로드수}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    </li>
+                `)
+        };
+    }
+
+    const googleplayPrevbutton = document.getElementById('googleplayPrev')
+    const googleplayNextbutton = document.getElementById('googleplayNext')
+    googleplayNextbutton.style.display = 'none'
+
+    googleplayPrevbutton.addEventListener('click', (e) => {
+        googleplayPage--
+        if (googleplayPage == 0) {
+            googleplayPrevbutton.style.display = 'none'
+        }
+
+        if (googleplayPage != 2) {
+            googleplayNextbutton.style.display = 'block'
+        }
+
+        document.getElementById('googleplayList').remove()
+
+        const googleplayList = document.createElement('ul')
+        googleplayList.id = 'googleplayList'
+
+        document.getElementById('googleplayDiv').appendChild(googleplayList)
+        googleplayRankingArrangement(googleplayData);
+        console.log(googleplayPage)
+    })
+
+    googleplayNextbutton.addEventListener('click', (e) => {
+        googleplayPage++
+        if (googleplayPage == 2) {
+            googleplayNextbutton.style.display = 'none'
+        }
+
+        if (googleplayPage != 0) {
+            googleplayPrevbutton.style.display = 'block'
+        }
+
+        document.getElementById('googleplayList').remove()
+
+        const googleplayList = document.createElement('ul')
+        googleplayList.id = 'googleplayList'
+
+        document.getElementById('googleplayDiv').appendChild(googleplayList)
+        googleplayRankingArrangement(googleplayData);
+        console.log(googleplayPage)
+    })
+</script>
 
 </html>
