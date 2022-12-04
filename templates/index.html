@@ -10,9 +10,13 @@
 </head>
 
 <body>
+    <div id="load"></div>
+
     <div class="frontInfo" id="frontInfoId">
         <div class="Info">
-            <button id="closeFrontInfo">X</button>
+            <button id="closeFrontInfo">
+                <img src="/static/img/close.png" alt="">
+            </button>
             <div id="popupData"></div>
         </div>
     </div>
@@ -31,7 +35,7 @@
                 <li>
                     <p id="melon_date"></p>
                     <div class="ranking melon" id="melonDiv">
-                        <img src="/static/img/logo/melon.png" alt="melon">
+                        <img title="Melon" src="/static/img/logo/melon.png" alt="melon">
                         <hr>
                         <ul id="melonList">
                         </ul>
@@ -56,7 +60,7 @@
                 <li>
                     <p id="musinsa_date"></p>
                     <div class="ranking musinsa" id="musinsaDiv">
-                        <img src="/static/img/logo/musinsa.png" alt="musinsa">
+                        <img title="MUSINSA" src="/static/img/logo/musinsa.png" alt="musinsa">
                         <hr>
                         <ul id="musinsaList">
                         </ul>
@@ -81,7 +85,7 @@
                 <li>
                     <p id="googleplay_date"></p>
                     <div class="ranking playstore" id="googleplayDiv">
-                        <img src="/static/img/logo/playstore.png" alt="googleplay">
+                        <img title="Google PlayStore" src="/static/img/logo/playstore.png" alt="googleplay">
                         <hr>
                         <ul id="googleplayList">
                         </ul>
@@ -106,6 +110,9 @@
     </main>
 </body>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.0/lottie.min.js"></script>
+<script src="{{ url_for('static', path='/js/script.js') }}"></script>
 <!-- melon -->
 <script src="{{ url_for('static', path='/js/melon_crawling_lender.js') }}"></script>
 <!-- musinsa -->

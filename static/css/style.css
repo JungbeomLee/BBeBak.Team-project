@@ -1,9 +1,20 @@
 * {
   margin: 0;
   padding: 0;
+<<<<<<< HEAD
 }
 
 html, body {
+=======
+  color: white;
+}
+
+html, body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+>>>>>>> origin/feature-PMS
   width: 100%;
   height: 100%;
   min-width: 420px;
@@ -14,6 +25,16 @@ a {
   text-decoration: none;
 }
 
+<<<<<<< HEAD
+=======
+h1, h2, h3, h4, h5, h6, p, a {
+  -webkit-user-select: all;
+  -moz-user-select: all;
+  -ms-user-select: all;
+  user-select: all;
+}
+
+>>>>>>> origin/feature-PMS
 ul {
   list-style: none;
 }
@@ -24,6 +45,178 @@ hr {
   background-color: #FFFFFF;
 }
 
+<<<<<<< HEAD
+=======
+#load {
+  position: absolute;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 100;
+  -webkit-animation: intro 1s;
+          animation: intro 1s;
+  display: block;
+}
+
+@-webkit-keyframes intro {
+  0% {
+    display: block;
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    display: block;
+    opacity: 0;
+  }
+}
+
+@keyframes intro {
+  0% {
+    display: block;
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    display: block;
+    opacity: 0;
+  }
+}
+.frontInfo {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 99;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+.frontInfo > .Info {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 350px;
+  background-color: #EEEEEE;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+.frontInfo > .Info > #closeFrontInfo {
+  z-index: 1000;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background-color: transparent;
+  border: 0;
+}
+.frontInfo > .Info > #closeFrontInfo > img {
+  width: 50px;
+  height: 50px;
+}
+.frontInfo > .Info > #popupData > #frontPopupInRankData {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  max-width: 460px;
+  max-height: 360px;
+}
+.frontInfo > .Info > #popupData > #frontPopupInRankData > h3 {
+  width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: black;
+  font-size: 30px;
+}
+.frontInfo > .Info > #popupData > #frontPopupInRankData > h4 {
+  color: gray;
+  font-size: 20px;
+}
+.frontInfo > .Info > #popupData > #frontPopupInRankData > .info {
+  margin-top: 10px;
+}
+.frontInfo > .Info > #popupData > #frontPopupInRankData > .info > .ImgTitle {
+  display: flex;
+}
+.frontInfo > .Info > #popupData > #frontPopupInRankData > .info > .ImgTitle > img {
+  width: 120px;
+  height: 120px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.frontInfo > .Info > #popupData > #frontPopupInRankData > .info > .ImgTitle > .subInfo > h3 {
+  margin-left: 10px;
+  color: black;
+  font-size: 25px;
+}
+.frontInfo > .Info > #popupData > #frontPopupInRankData > .info > .ImgTitle > .subInfo > h4 {
+  white-space: normal;
+  margin-left: 10px;
+  color: black;
+  font-size: 15px;
+}
+.frontInfo > .Info > #popupData > #frontPopupInRankData > .info > h4 {
+  color: black;
+}
+.frontInfo > .Info > #popupData > #frontPopupInRankData > .info > #linkbutton {
+  margin-top: 10px;
+  color: black;
+  background-color: white;
+  mix-blend-mode: difference;
+  border-radius: 2px;
+  border: 0;
+  font-weight: bold;
+  font-size: 20px;
+}
+.frontInfo > .Info > #popupData > #frontPopupInRankData > .info > .like {
+  margin-top: 10px;
+  display: flex;
+}
+.frontInfo > .Info > #popupData > #frontPopupInRankData > .info > .like > img {
+  mix-blend-mode: difference;
+  width: 30px;
+  height: 30px;
+}
+.frontInfo > .Info > #popupData > #frontPopupInRankData > .info > .like > p {
+  margin-left: 10px;
+  font-size: 25px;
+  color: black;
+}
+.frontInfo > .Info > #popupData > #frontPopupInRankData > .info > .coin {
+  margin-top: 10px;
+  display: flex;
+}
+.frontInfo > .Info > #popupData > #frontPopupInRankData > .info > .coin > img {
+  mix-blend-mode: difference;
+  width: 30px;
+  height: 30px;
+}
+.frontInfo > .Info > #popupData > #frontPopupInRankData > .info > .coin > p {
+  margin-left: 10px;
+  font-size: 25px;
+  color: black;
+}
+.frontInfo > .Info > #popupData > #frontPopupInRankData > .info > .down {
+  margin-top: 10px;
+  display: flex;
+}
+.frontInfo > .Info > #popupData > #frontPopupInRankData > .info > .down > img {
+  mix-blend-mode: difference;
+  width: 30px;
+  height: 30px;
+}
+.frontInfo > .Info > #popupData > #frontPopupInRankData > .info > .down > p {
+  margin-left: 10px;
+  font-size: 25px;
+  color: black;
+}
+
+>>>>>>> origin/feature-PMS
 .bg-video {
   position: fixed;
   right: 0;
@@ -36,6 +229,10 @@ hr {
 
 .title {
   width: 100%;
+<<<<<<< HEAD
+=======
+  height: 75px;
+>>>>>>> origin/feature-PMS
   text-align: center;
 }
 .title > a {
@@ -56,7 +253,10 @@ hr {
 .rank > ul {
   display: flex;
   justify-content: space-between;
+<<<<<<< HEAD
   color : white;
+=======
+>>>>>>> origin/feature-PMS
 }
 .rank > ul > li {
   -webkit-backdrop-filter: blur(30px);
@@ -66,7 +266,11 @@ hr {
   border-radius: 5px;
   text-align: center;
   width: 385px;
+<<<<<<< HEAD
   height: 720px;
+=======
+  height: calc(100vh - 225px);
+>>>>>>> origin/feature-PMS
 }
 .rank > ul > li > p {
   font-family: Arial, Helvetica, sans-serif;
@@ -91,12 +295,33 @@ hr {
 .ranking > ul::-webkit-scrollbar {
   display: none;
 }
+.ranking > ul > li > div {
+  background-color: none;
+}
 .ranking > ul > li > div > h3 {
   font-family: "Arial, Helvetica, sans-serif";
   font-size: 24px;
   line-height: 115px;
   min-width: 42px;
   text-align: right;
+}
+.ranking > ul > li > div > .rankingImg {
+  min-width: 70px;
+  max-width: 70px;
+  max-height: 70px;
+  margin-left: 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+.ranking > ul > li > div > .rankingImg > img {
+  border: 2px solid white;
+  border-radius: 5px;
+  width: auto;
+  height: 70px;
+}
+.ranking > ul > li > div > .info {
+  margin-left: 20px;
+  width: 100%;
 }
 .ranking > ul > li > div > .info > h3 {
   white-space: nowrap;
@@ -122,18 +347,6 @@ hr {
   margin: auto;
   text-align: left;
   display: flex;
-}
-.melon > ul > li > div > img {
-  width: 70px;
-  height: 70px;
-  border: 2px solid white;
-  border-radius: 5px;
-  margin-left: 10px;
-  margin-top: 10px;
-}
-.melon > ul > li > div > .info {
-  margin-left: 10px;
-  width: 100%;
 }
 .melon > ul > li > div > .info > hr {
   width: 90%;
@@ -177,18 +390,6 @@ hr {
   text-align: left;
   display: flex;
 }
-.musinsa > ul > li > div > img {
-  width: 70px;
-  height: 70px;
-  border: 2px solid white;
-  border-radius: 5px;
-  margin-left: 10px;
-  margin-top: 10px;
-}
-.musinsa > ul > li > div > .info {
-  margin-left: 10px;
-  width: 100%;
-}
 .musinsa > ul > li > div > .info > hr {
   width: 90%;
 }
@@ -231,18 +432,6 @@ hr {
   text-align: left;
   display: flex;
 }
-.playstore > ul > li > div > img {
-  width: 70px;
-  height: 70px;
-  border: 2px solid white;
-  border-radius: 5px;
-  margin-left: 10px;
-  margin-top: 10px;
-}
-.playstore > ul > li > div > .info {
-  margin-left: 10px;
-  width: 100%;
-}
 .playstore > ul > li > div > .info > hr {
   width: 90%;
 }
@@ -253,16 +442,9 @@ hr {
   font-size: 24px;
   color: #ffffff;
 }
-.playstore > ul > li > div > .info > h4 {
-  width: 200px;
-  height: 21.6px;
-  font-family: "Arial, Helvetica, sans-serif";
-  font-size: 16px;
-  color: #cecece;
-}
 .playstore > ul > li > div > .info > .down {
   display: flex;
-  margin-top: 29px;
+  margin-top: 31px;
   margin-left: 60px;
 }
 .playstore > ul > li > div > .info > .down > img {
@@ -280,7 +462,7 @@ hr {
   display: flex;
   width: 80%;
   margin: auto;
-  top: 80px;
+  top: 10px;
   justify-content: space-between;
   z-index: 1;
 }
@@ -294,33 +476,9 @@ hr {
   opacity: 100%;
 }
 
-.frontInfo {
-  display: none;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 99;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-  color: black;
-}
-.frontInfo > .Info {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  max-width: 1000px;
-  height: 80%;
-  max-height: 800px;
-  background-color: gray;
-  border-radius: 10px;
-  border: 2px solid black;
-}
-
 @media (min-width: 1470px) {
   .ranking > ul {
-    height: 468px;
+    height: calc(100vh - 415px);
   }
 }
 @media (max-width: 1470px) {
@@ -340,4 +498,4 @@ hr {
   .PrevNext > ul {
     top: 10px;
   }
-}
+}/*# sourceMappingURL=style.css.map */

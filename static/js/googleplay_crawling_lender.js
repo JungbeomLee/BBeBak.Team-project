@@ -21,15 +21,15 @@ function googleplayRankingArrangement(data) {
         list.insertAdjacentHTML('beforeend', `
                     <li class='googleplaypopup' id='googleplay${data[(googleplayPage).toString() + 'st'][i][0].순위}'>
                         <div>
-                            <h3>${data[(googleplayPage).toString() + 'st'][i][0].순위}</h3>
-                            <img src="${data[(googleplayPage).toString() + 'st'][i][0].앱로고}">
+                            <h3 title="${data[(googleplayPage).toString() + 'st'][i][0].순위}">${data[(googleplayPage).toString() + 'st'][i][0].순위}</h3>
+                            <div class="rankingImg"><img title="${data[(googleplayPage).toString() + 'st'][i][0].앱이름}" src="${data[(googleplayPage).toString() + 'st'][i][0].앱로고}"></div>
                             <div class="info">
-                                <h3 title='${data[(googleplayPage).toString() + 'st'][i][0].앱이름}'>${data[(googleplayPage).toString() + 'st'][i][0].앱이름}</h3>
+                                <h3 title="${data[(googleplayPage).toString() + 'st'][i][0].앱이름}">${data[(googleplayPage).toString() + 'st'][i][0].앱이름}</h3>
                                 <hr>
-                                <h4>평점 : ${data[(googleplayPage).toString() + 'st'][i][0].평점}</h4>
+                                <h4 title="${data[(googleplayPage).toString() + 'st'][i][0].평점}">평점 : ${data[(googleplayPage).toString() + 'st'][i][0].평점}</h4>
                                 <div class="down">
-                                    <img src="/static/img/down.png" alt="Down Logo">
-                                    <p>${data[(googleplayPage).toString() + 'st'][i][0].다운로드수}</p>
+                                    <img title="다운로드" src="/static/img/down.png" alt="Down Logo">
+                                    <p title="${data[(googleplayPage).toString() + 'st'][i][0].다운로드수}">${data[(googleplayPage).toString() + 'st'][i][0].다운로드수}</p>
                                 </div>
                             </div>
                         </div>
@@ -117,15 +117,19 @@ function googleplayPopupClick() {
 
             frontData.insertAdjacentHTML('beforeend', `
             <div id='frontPopupInRankData'>
-                <h3>${googleplayData[(googleplayPage).toString() + 'st'][frontDataListNum][0].앱이름}</h3>
+                <h3 title="${googleplayData[(googleplayPage).toString() + 'st'][frontDataListNum][0].앱이름}">${googleplayData[(googleplayPage).toString() + 'st'][frontDataListNum][0].앱이름}</h3>
+                <h4 title="${googleplayData[(googleplayPage).toString() + 'st'][frontDataListNum][0].순위}">순위 : ${googleplayData[(googleplayPage).toString() + 'st'][frontDataListNum][0].순위}</h4>
                 <div class="info">
-                    <h3>순위 : ${googleplayData[(googleplayPage).toString() + 'st'][frontDataListNum][0].순위}</h3>
-                    <img src="${googleplayData[(googleplayPage).toString() + 'st'][frontDataListNum][0].앱로고}" alt="googleplay Ranking">
-                    <h4>평점 : ${googleplayData[(googleplayPage).toString() + 'st'][frontDataListNum][0].평점}</h4>
-                    <button id='linkbutton' onclick="window.open('${googleplayData[(googleplayPage).toString() + 'st'][frontDataListNum][0].앱링크}')">노래들으러가기</button>
-                    <div class="coin">
-                        <img src="/static/img/down.png" alt="Down Logo">
-                        <p>${googleplayData[(googleplayPage).toString() + 'st'][frontDataListNum][0].다운로드수}</p>
+                    <div class="ImgTitle">
+                    <img title="${googleplayData[(googleplayPage).toString() + 'st'][frontDataListNum][0].앱이름}" src="${googleplayData[(googleplayPage).toString() + 'st'][frontDataListNum][0].앱로고}" alt="googleplay Ranking">
+                    <div class="subInfo">
+                    <h3 title="${googleplayData[(googleplayPage).toString() + 'st'][frontDataListNum][0].평점}">평점 : ${googleplayData[(googleplayPage).toString() + 'st'][frontDataListNum][0].평점}</h3>
+                    </div>
+                    </div>
+                    <button title="앱 다운" id='linkbutton' onclick="window.open('${googleplayData[(googleplayPage).toString() + 'st'][frontDataListNum][0].앱링크}')">앱 다운</button>
+                    <div class="down">
+                        <img title="다운로드" src="/static/img/down.png" alt="Down Logo">
+                        <p title="">${googleplayData[(googleplayPage).toString() + 'st'][frontDataListNum][0].다운로드수}</p>
                     </div>
                 </div>
             </div>

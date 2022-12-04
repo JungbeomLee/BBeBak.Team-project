@@ -22,15 +22,15 @@ function melonRankingArrangement(data) {
         list.insertAdjacentHTML('beforeend', `
                     <li class='melonpopup' id='melon${data[(melonPage).toString() + 'st'][i].rank}' >
                         <div>
-                            <h3 id='melonH3${data[(melonPage).toString() + 'st'][i].rank}'>${data[(melonPage).toString() + 'st'][i].rank}</h3>
-                            <img src="${data[(melonPage).toString() + 'st'][i].img}" alt="Melon Ranking">
+                            <h3 title="${data[(melonPage).toString() + 'st'][i].rank}" id='melonH3${data[(melonPage).toString() + 'st'][i].rank}'>${data[(melonPage).toString() + 'st'][i].rank}</h3>
+                            <div class="rankingImg"><img title="${data[(melonPage).toString() + 'st'][i].title}" src="${data[(melonPage).toString() + 'st'][i].img}" alt="Melon Ranking"></div>
                             <div class="info">
-                                <h3 title='${data[(melonPage).toString() + 'st'][i].title}'>${data[(melonPage).toString() + 'st'][i].title}</h3>
+                                <h3 title="${data[(melonPage).toString() + 'st'][i].title}">${data[(melonPage).toString() + 'st'][i].title}</h3>
                                 <hr>
-                                <h4>${data[(melonPage).toString() + 'st'][i].prod}</h4>
+                                <h4 title="${data[(melonPage).toString() + 'st'][i].prod}">${data[(melonPage).toString() + 'st'][i].prod}</h4>
                                 <div class="like">
-                                    <img src="/static/img/like.png" alt="Like Logo">
-                                    <p>${data[(melonPage).toString() + 'st'][i].like}</p>
+                                    <img title="좋아요" src="/static/img/like.png" alt="Like Logo">
+                                    <p title="${data[(melonPage).toString() + 'st'][i].like}">${data[(melonPage).toString() + 'st'][i].like}</p>
                                 </div>
                             </div>
                         </div>
@@ -117,16 +117,20 @@ function melonPopupClick() {
 
             frontData.insertAdjacentHTML('beforeend', `
                 <div id='frontPopupInRankData'>
-                    <h3>${melonData[(melonPage).toString() + 'st'][frontDataListNum].title}</h3>
-                    <div class="info">
-                        <h3>순위 : ${melonData[(melonPage).toString() + 'st'][frontDataListNum].rank}</h3>
-                        <img src="${melonData[(melonPage).toString() + 'st'][frontDataListNum].img}" alt="Melon Ranking">
-                        <h4>아티스트<br>${melonData[(melonPage).toString() + 'st'][frontDataListNum].prod}</h4>
-                        <h4>앨범 : ${melonData[(melonPage).toString() + 'st'][frontDataListNum].album}</h4>
-                        <button id='linkbutton' onclick="window.open('${melonData[(melonPage).toString() + 'st'][frontDataListNum].music_link}')">노래들으러가기</button>
+                    <h3 title="${melonData[(melonPage).toString() + 'st'][frontDataListNum].title}">${melonData[(melonPage).toString() + 'st'][frontDataListNum].title}</h3>
+                    <h4 title="${melonData[(melonPage).toString() + 'st'][frontDataListNum].rank}">순위 : ${melonData[(melonPage).toString() + 'st'][frontDataListNum].rank}</h4>
+                    <div class="info"> 
+                        <div class="ImgTitle">
+                        <img title="${melonData[(melonPage).toString() + 'st'][frontDataListNum].title}" src="${melonData[(melonPage).toString() + 'st'][frontDataListNum].img}" alt="Melon Ranking">
+                        <div class="subInfo">
+                        <h3 title="${melonData[(melonPage).toString() + 'st'][frontDataListNum].prod}">${melonData[(melonPage).toString() + 'st'][frontDataListNum].prod}</h3>
+                        <h4 title="${melonData[(melonPage).toString() + 'st'][frontDataListNum].album}">앨범 : ${melonData[(melonPage).toString() + 'st'][frontDataListNum].album}</h4>
+                        </div>
+                        </div>
+                        <button title="노래 들기" id='linkbutton' onclick="window.open('${melonData[(melonPage).toString() + 'st'][frontDataListNum].music_link}')">노래 들기</button>
                         <div class="like">
-                            <img src="/static/img/like.png" alt="Like Logo">
-                            <p>${melonData[(melonPage).toString() + 'st'][frontDataListNum].like}</p>
+                            <img title="좋아요" src="/static/img/like.png" alt="Like Logo">
+                            <p title="${melonData[(melonPage).toString() + 'st'][frontDataListNum].like}">${melonData[(melonPage).toString() + 'st'][frontDataListNum].like}</p>
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,4 @@
 window.onload = getMusinsaUserData();
-    
     let musinsaPage = 2
     let musinsaData
 
@@ -21,15 +20,15 @@ window.onload = getMusinsaUserData();
             list.insertAdjacentHTML('beforeend', `
                         <li class='musinsapopup' id='musinsa${data[(musinsaPage).toString() + 'st'][i][0].순위}'>
                             <div>
-                                <h3>${data[(musinsaPage).toString() + 'st'][i][0].순위}</h3>
-                                <img src="${data[(musinsaPage).toString() + 'st'][i][0].옷사진}">
+                                <h3 title="${data[(musinsaPage).toString() + 'st'][i][0].순위}">${data[(musinsaPage).toString() + 'st'][i][0].순위}</h3>
+                                <div class="rankingImg"><img title="${data[(musinsaPage).toString() + 'st'][i][0].옷이름}" src="${data[(musinsaPage).toString() + 'st'][i][0].옷사진}"></div>
                                 <div class="info">
-                                    <h3 title='${data[(musinsaPage).toString() + 'st'][i][0].옷이름}'>${data[(musinsaPage).toString() + 'st'][i][0].옷이름}</h3>
+                                    <h3 title="${data[(musinsaPage).toString() + 'st'][i][0].옷이름}">${data[(musinsaPage).toString() + 'st'][i][0].옷이름}</h3>
                                     <hr>
-                                    <h4>${data[(musinsaPage).toString() + 'st'][i][0].브랜드}</h4>
+                                    <h4 title="${data[(musinsaPage).toString() + 'st'][i][0].브랜드}">${data[(musinsaPage).toString() + 'st'][i][0].브랜드}</h4>
                                     <div class="coin">
-                                        <img src="/static/img/won.png"Coin Logo">
-                                        <p>${data[(musinsaPage).toString() + 'st'][i][0].가격}</p>
+                                        <img title="가격" src="/static/img/won.png"Coin Logo">
+                                        <p title="${data[(musinsaPage).toString() + 'st'][i][0].가격}">${data[(musinsaPage).toString() + 'st'][i][0].가격}</p>
                                     </div>
                                 </div>
                             </div>
@@ -116,15 +115,19 @@ function musinsaPopupClick() {
 
             frontData.insertAdjacentHTML('beforeend', `
                 <div id='frontPopupInRankData'>
-                    <h3>${musinsaData[(musinsaPage).toString() + 'st'][frontDataListNum][0].옷이름}</h3>
+                    <h3 title="${musinsaData[(musinsaPage).toString() + 'st'][frontDataListNum][0].옷이름}">${musinsaData[(musinsaPage).toString() + 'st'][frontDataListNum][0].옷이름}</h3>
+                    <h4 title="${musinsaData[(musinsaPage).toString() + 'st'][frontDataListNum][0].순위}">순위 : ${musinsaData[(musinsaPage).toString() + 'st'][frontDataListNum][0].순위}</h4>
                     <div class="info">
-                        <h3>순위 : ${musinsaData[(musinsaPage).toString() + 'st'][frontDataListNum][0].순위}</h3>
-                        <img src="${musinsaData[(musinsaPage).toString() + 'st'][frontDataListNum][0].옷사진}" alt="musinsa Ranking">
-                        <h4>브랜드<br>${musinsaData[(musinsaPage).toString() + 'st'][frontDataListNum][0].브랜드}</h4>
-                        <button id='linkbutton' onclick="window.open('${musinsaData[(musinsaPage).toString() + 'st'][frontDataListNum][0].제품링크}')">노래들으러가기</button>
+                        <div class="ImgTitle">
+                        <img title="${musinsaData[(musinsaPage).toString() + 'st'][frontDataListNum][0].옷이름}" src="${musinsaData[(musinsaPage).toString() + 'st'][frontDataListNum][0].옷사진}" alt="musinsa Ranking">
+                        <div class="subInfo">
+                        <h3 title="${musinsaData[(musinsaPage).toString() + 'st'][frontDataListNum][0].브랜드}">${musinsaData[(musinsaPage).toString() + 'st'][frontDataListNum][0].브랜드}</h3>
+                        </div>
+                        </div>
+                        <button title="옷 구매" id='linkbutton' onclick="window.open('${musinsaData[(musinsaPage).toString() + 'st'][frontDataListNum][0].제품링크}')">옷 구매</button>
                         <div class="coin">
-                            <img src="/static/img/won.png"Coin Logo">
-                            <p>${musinsaData[(musinsaPage).toString() + 'st'][frontDataListNum][0].가격}</p>
+                            <img title="가격" src="/static/img/won.png"Coin Logo">
+                            <p title="${musinsaData[(musinsaPage).toString() + 'st'][frontDataListNum][0].가격}">${musinsaData[(musinsaPage).toString() + 'st'][frontDataListNum][0].가격}</p>
                         </div>
                     </div>
                 </div>
