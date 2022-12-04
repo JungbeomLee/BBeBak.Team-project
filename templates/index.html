@@ -1,12 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet">
     <title>Document</title>
 </head>
+
 <body>
-    <button onclick="location.href='/main'">메인</button>
+    <div id="load"></div>
+
+    <div class="frontInfo" id="frontInfoId">
+        <div class="Info">
+            <button id="closeFrontInfo">
+                <img src="/static/img/close.png" alt="">
+            </button>
+            <div id="popupData"></div>
+        </div>
+    </div>
+
+    <header>
+        <div class="title">
+            <a href="#">LOGO</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="rank">
+            <ul>
+
+                <!-- melon -->
+                <li>
+                    <p id="melon_date"></p>
+                    <div class="ranking melon" id="melonDiv">
+                        <img title="Melon" src="/static/img/logo/melon.png" alt="melon">
+                        <hr>
+                        <ul id="melonList">
+                        </ul>
+                    </div>
+                    <div class="PrevNext">
+                        <ul>
+                            <li>
+                                <button type="button" class="imageButton prev melon" id="melonPrev">
+                                    <img src="/static/img/PrevBtn.png" alt="prev">
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="imageButton next" id="melonNext">
+                                    <img src="/static/img/NextBtn.png" alt="prev">
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- musinsa -->
+                <li>
+                    <p id="musinsa_date"></p>
+                    <div class="ranking musinsa" id="musinsaDiv">
+                        <img title="MUSINSA" src="/static/img/logo/musinsa.png" alt="musinsa">
+                        <hr>
+                        <ul id="musinsaList">
+                        </ul>
+                    </div>
+                    <div class="PrevNext">
+                        <ul>
+                            <li>
+                                <button type="button" class="imageButton prev" id="musinsaPrev">
+                                    <img src="/static/img/PrevBtn.png" alt="prev">
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="imageButton next" id="musinsaNext">
+                                    <img src="/static/img/NextBtn.png" alt="prev">
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- google play -->
+                <li>
+                    <p id="googleplay_date"></p>
+                    <div class="ranking playstore" id="googleplayDiv">
+                        <img title="Google PlayStore" src="/static/img/logo/playstore.png" alt="googleplay">
+                        <hr>
+                        <ul id="googleplayList">
+                        </ul>
+                    </div>
+                    <div class="PrevNext">
+                        <ul>
+                            <li>
+                                <button type="button" class="imageButton prev" id="googleplayPrev">
+                                    <img src="/static/img/PrevBtn.png" alt="prev">
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="imageButton next" id="googleplayNext">
+                                    <img src="/static/img/NextBtn.png" alt="prev">
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </main>
 </body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.0/lottie.min.js"></script>
+<script src="{{ url_for('static', path='/js/script.js') }}"></script>
+<!-- melon -->
+<script src="{{ url_for('static', path='/js/melon_crawling_lender.js') }}"></script>
+<!-- musinsa -->
+<script src="{{ url_for('static', path='/js/musinsa_crawling_lender.js') }}"></script>
+<!-- google play -->
+<script src="{{ url_for('static', path='/js/googleplay_crawling_lender.js') }}"></script>
+
 </html>
