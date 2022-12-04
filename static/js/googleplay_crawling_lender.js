@@ -2,6 +2,7 @@ window.onload = getgoogleplayUserData();
 
 let googleplayPage = 2
 let googleplayData
+let googleplayFrontPopupOpenButton
 
 function getgoogleplayUserData() {
     fetch('/googleplayranking/get', {
@@ -60,7 +61,9 @@ googleplayPrevbutton.addEventListener('click', (e) => {
 
     document.getElementById('googleplayDiv').appendChild(googleplayList)
     googleplayRankingArrangement(googleplayData);
-    console.log(googleplayPage)
+    googleplayFrontPopupOpenButton = document.getElementsByClassName('googleplaypopup')
+    // Call the below function
+    waitForElementToDisplay("#googleplay1",googleplayPopupClickCheck,1000,9000);
 })
 
 googleplayNextbutton.addEventListener('click', (e) => {
@@ -80,12 +83,14 @@ googleplayNextbutton.addEventListener('click', (e) => {
 
     document.getElementById('googleplayDiv').appendChild(googleplayList)
     googleplayRankingArrangement(googleplayData);
-    console.log(googleplayPage)
+    googleplayFrontPopupOpenButton = document.getElementsByClassName('googleplaypopup')
+    // Call the below function
+    waitForElementToDisplay("#googleplay1",googleplayPopupClickCheck,1000,9000);
 })
 
 
 // Call the below function
-waitForElementToDisplay("#googleplay1",googleplayPopupClick,1000,9000);
+waitForElementToDisplay("#googleplay1",googleplayPopupClickCheck,1000,9000);
 
 function waitForElementToDisplay(selector, callback, checkFrequencyInMs, timeoutInMs) {
   var startTimeInMs = Date.now();
@@ -104,10 +109,12 @@ function waitForElementToDisplay(selector, callback, checkFrequencyInMs, timeout
   })();
 }
 
-function googleplayPopupClick() {
-    const googleplayFrontPopupOpenButton = document.getElementsByClassName('googleplaypopup')
-    console.log('hi')
+function googleplayPopupClickCheck() {
+    googleplayFrontPopupOpenButton = document.getElementsByClassName('googleplaypopup')
+    googleplayPopupClick()
+}
 
+function googleplayPopupClick() {
     for(const googleplaylist of googleplayFrontPopupOpenButton){
         googleplaylist.addEventListener('click', (e) => {
             document.getElementById('frontInfoId').style.display = 'flex'

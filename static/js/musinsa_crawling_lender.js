@@ -1,6 +1,7 @@
 window.onload = getMusinsaUserData();
     let musinsaPage = 2
     let musinsaData
+    let musinsaFrontPopupOpenButton
 
     function getMusinsaUserData() {
         fetch('/musinsaranking/get', {
@@ -59,7 +60,10 @@ window.onload = getMusinsaUserData();
 
         document.getElementById('musinsaDiv').appendChild(musinsaList)
         musinsaRankingArrangement(musinsaData);
-        console.log(musinsaPage)
+
+        musinsaFrontPopupOpenButton = document.getElementsByClassName('musinsapopup')
+        // Call the below function
+        waitForElementToDisplay("#musinsa1",musinsaPopupClickCheck,1000,9000);
     })
 
     musinsaNextbutton.addEventListener('click', (e) => {
@@ -79,12 +83,14 @@ window.onload = getMusinsaUserData();
 
         document.getElementById('musinsaDiv').appendChild(musinsaList)
         musinsaRankingArrangement(musinsaData);
-        console.log(musinsaPage)
+        musinsaFrontPopupOpenButton = document.getElementsByClassName('musinsapopup')
+        // Call the below function
+        waitForElementToDisplay("#musinsa1",musinsaPopupClickCheck,1000,9000);
     })
 
 
 // Call the below function
-waitForElementToDisplay("#musinsa1",musinsaPopupClick,1000,9000);
+waitForElementToDisplay("#musinsa1",musinsaPopupClickCheck,1000,9000);
 
 function waitForElementToDisplay(selector, callback, checkFrequencyInMs, timeoutInMs) {
   var startTimeInMs = Date.now();
@@ -103,9 +109,12 @@ function waitForElementToDisplay(selector, callback, checkFrequencyInMs, timeout
   })();
 }
 
-function musinsaPopupClick() {
-    const musinsaFrontPopupOpenButton = document.getElementsByClassName('musinsapopup')
-    
+function musinsaPopupClickCheck() {
+    musinsaFrontPopupOpenButton = document.getElementsByClassName('musinsapopup')
+    musinsaPopupClick()
+}
+
+function musinsaPopupClick() {    
     for(const musinsalist of musinsaFrontPopupOpenButton){
         musinsalist.addEventListener('click', (e) => {
             document.getElementById('frontInfoId').style.display = 'flex'

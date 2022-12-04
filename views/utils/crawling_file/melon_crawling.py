@@ -4,15 +4,9 @@ import os
 import json
 from datetime import datetime
 from bs4 import BeautifulSoup
-from dotenv import load_dotenv
-import json
-import os
-import requests
 
 class MELON_CRAWLING :
     def melon_crawling() :
-        load_dotenv()
-        APIKEY = os.getenv("APIKEY")
         json_count = len(os.listdir('views/utils/json/melon/'))
         
         if json_count == 3 :
@@ -61,6 +55,9 @@ class MELON_CRAWLING :
 
             count = 0
             while(1):
+                if len(rank) <= count:
+                    break
+
                 data = {
                     "date" : crawling_time,
                     "rank": rank[count].contents[0],

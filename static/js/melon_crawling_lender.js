@@ -1,7 +1,8 @@
 window.onload = getMelonUserData();
 
-let melonPage = 2
-let melonData
+let melonPage = 2;
+let melonData;
+let melonFrontPopupOpenButton;
 
 
 function getMelonUserData() {
@@ -61,7 +62,9 @@ melonPrevbutton.addEventListener('click', (e) => {
 
     document.getElementById('melonDiv').appendChild(melonList)
     melonRankingArrangement(melonData);
-    console.log(melonPage)
+    melonFrontPopupOpenButton = document.getElementsByClassName('melonpopup')
+    // Call the below function
+    waitForElementToDisplay("#melon1",melonPopupClickCheck,1000,9000);
 })
 
 melonNextbutton.addEventListener('click', (e) => {
@@ -81,12 +84,14 @@ melonNextbutton.addEventListener('click', (e) => {
 
     document.getElementById('melonDiv').appendChild(melonList)
     melonRankingArrangement(melonData);
-    console.log(melonPage)
+    melonFrontPopupOpenButton = document.getElementsByClassName('melonpopup')
+    // Call the below function
+    waitForElementToDisplay("#melon1",melonPopupClickCheck,1000,9000);
 })
 
 
 // Call the below function
-waitForElementToDisplay("#melon1",melonPopupClick,1000,9000);
+waitForElementToDisplay("#melon1",melonPopupClickCheck,1000,9000);
 
 function waitForElementToDisplay(selector, callback, checkFrequencyInMs, timeoutInMs) {
   var startTimeInMs = Date.now();
@@ -105,9 +110,13 @@ function waitForElementToDisplay(selector, callback, checkFrequencyInMs, timeout
   })();
 }
 
-function melonPopupClick() {
-    const melonFrontPopupOpenButton = document.getElementsByClassName('melonpopup')
+function melonPopupClickCheck() {
+    melonFrontPopupOpenButton = document.getElementsByClassName('melonpopup')
+    melonPopupClick()
 
+}
+
+function  melonPopupClick() {
     for(const melonlist of melonFrontPopupOpenButton){
         melonlist.addEventListener('click', (e) => {
             document.getElementById('frontInfoId').style.display = 'flex'

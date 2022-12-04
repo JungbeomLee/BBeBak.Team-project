@@ -62,3 +62,5 @@ class GOOGLEPLAY_CRAWLING :
 
         with open('views/utils/json/googleplay/googleplay{}.json'.format(json_count), 'w', encoding='utf-8') as f:
             f.write(json.dumps(datas, ensure_ascii=False))
+        
+        print('googleplay crawled')
