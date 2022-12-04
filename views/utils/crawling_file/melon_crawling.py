@@ -80,4 +80,3 @@ class MELON_CRAWLING :
             f.write(json.dumps(datas, ensure_ascii = False))
 
         print('melon crawled')
-MELON_CRAWLING.melon_crawling()

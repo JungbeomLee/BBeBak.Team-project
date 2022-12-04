@@ -1,5 +1,5 @@
 window.onload = getMusinsaUserData();
-
+    
     let musinsaPage = 2
     let musinsaData
 
