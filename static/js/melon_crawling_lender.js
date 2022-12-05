@@ -113,7 +113,6 @@ function waitForElementToDisplay(selector, callback, checkFrequencyInMs, timeout
 function melonPopupClickCheck() {
     melonFrontPopupOpenButton = document.getElementsByClassName('melonpopup')
     melonPopupClick()
-
 }
 
 function  melonPopupClick() {
